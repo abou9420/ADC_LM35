@@ -392,6 +392,11 @@
               <FileType>5</FileType>
               <FilePath>..\..\src\lcd.h</FilePath>
             </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ADC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

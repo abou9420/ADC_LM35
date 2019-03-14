@@ -67,9 +67,7 @@ int main()
 		temp = calVoltage*100;
 		lcd_gotoxy(2,7);
 		sprintf(temper ,"T=%0.0f",temp);
-		lcd_putsf(temper);
-			
-		
+		lcd_putsf(temper);		
 	}
 	
 }
