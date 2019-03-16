@@ -395,7 +395,7 @@
             <File>
               <FileName>ADC.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\ADC.h</FilePath>
+              <FilePath>..\..\src\ADC.h</FilePath>
             </File>
           </Files>
         </Group>

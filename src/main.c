@@ -1,7 +1,5 @@
 #include "lpc17xx_gpio.h"
-#include "lpc17xx_adc.h"
-#include "lpc17xx_pinsel.h"
-
+#include "ADC.h"
 /* Char LCD definition */
 #define LCD_LPC1768       
 #define LCD_PORT_2
@@ -26,7 +24,8 @@ void Delay(uint8_t delay)
 	}
 }
 
-
+void ADC_PIN_Difenation(uint8_t OpenDrain_status, uint8_t Pinmode_status, uint8_t PinNum);
+void ADC_INIT(uint32_t Rate, uint8_t CHANNEL, FunctionalState State);
 int main()
 {
 	// variable 
@@ -36,27 +35,18 @@ int main()
 	lcd_init();
 	lcd_clear();
 	// pinsel difenation
-	PINSEL_CFG_Type adcpin;
-	adcpin.Funcnum = PINSEL_FUNC_1;
-	adcpin.OpenDrain = PINSEL_PINMODE_NORMAL;
-	adcpin.Pinmode = PINSEL_PINMODE_TRISTATE;
-	adcpin.Pinnum = PINSEL_PIN_24;
-	adcpin.Portnum =PINSEL_PORT_0;
-	
-	PINSEL_ConfigPin(&adcpin);
-	
+	 ADC_PIN_Difenation(NORMAL, PINMODE_TRISTATE, 30);
 	// adc prepheral init
-	ADC_Init(LPC_ADC,200000);
-	ADC_ChannelCmd(LPC_ADC,ADC_CHANNEL_1, ENABLE);
+   ADC_INIT(200000, CHANNEL_4, ENABLE);
 	//
 	lcd_gotoxy(1,4);
 	lcd_putsf("Temperatuer");
 	while(1)
 	{
 		ADC_StartCmd(LPC_ADC,ADC_START_NOW);
-		while(ADC_ChannelGetStatus(LPC_ADC,ADC_CHANNEL_1,ADC_DATA_DONE)==0)
+		while(ADC_ChannelGetStatus(LPC_ADC,ADC_CHANNEL_4,ADC_DATA_DONE)==0)
 		{}
-    voltage = ADC_ChannelGetData(LPC_ADC,ADC_CHANNEL_1);
+    voltage = ADC_ChannelGetData(LPC_ADC,ADC_CHANNEL_4);
 		/*
 			3.2volt    4096 digit
 			x          voltage 
@@ -71,3 +61,4 @@ int main()
 	}
 	
 }
+ 

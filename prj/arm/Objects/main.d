@@ -9,6 +9,7 @@
 .\objects\main.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\mpu_armv7.h
 .\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include\system_LPC17xx.h
 .\objects\main.o: ..\..\Drivers\include\lpc_types.h
+.\objects\main.o: ..\..\src\ADC.h
 .\objects\main.o: ..\..\Drivers\include\lpc17xx_adc.h
 .\objects\main.o: ..\..\Drivers\include\lpc17xx_pinsel.h
 .\objects\main.o: ..\..\src\lcd.h
